@@ -1,38 +1,36 @@
-const Order = require("../models/orderModel")
+const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
-
 //create new Order
-exports.newOrder = catchAsyncErrors(async(req,res,next)=>{
-    const {shippingInfo,
-        orderItems,
-        paymentInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice 
-    } = req.body
+exports.newOrder = catchAsyncErrors(async (req, res, next) => {
+  const {
+    shippingInfo,
+    orderItems,
+    paymentInfo,
+    itemsPrice,
+    taxPrice,
+    shippingPrice,
+    totalPrice,
+  } = req.body;
 
-    const order = await Order.create({
-        shippingInfo,
-        orderItems,
-        paymentInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paidAt:Date.now(),
-        user:req.user._id,
-
-
-    });
-    res.status(201).json({
-        success:true,
-        order
-    })
-})
+  const order = await Order.create({
+    shippingInfo,
+    orderItems,
+    paymentInfo,
+    itemsPrice,
+    taxPrice,
+    shippingPrice,
+    totalPrice,
+    paidAt: Date.now(),
+    user: req.user._id,
+  });
+  res.status(201).json({
+    success: true,
+    order,
+  });
+});
 
 // get Single Order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
@@ -113,7 +111,7 @@ async function updateStock(id, quantity) {
   product.Stock -= quantity;
 
   await product.save({ validateBeforeSave: false });
-} 
+}
 
 // delete Order -- Admin
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {

@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION-false && npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.5.5"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +30,7 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "sendmail": "^1.6.1",
+    "serve": "^14.0.1",
     "stripe": "^9.14.0",
     "validator": "^13.7.0"
   }
