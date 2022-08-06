@@ -11,6 +11,8 @@
 # production
 /build
 
+ignoreCase=false
+
 # misc
 .DS_Store
 .env.local
