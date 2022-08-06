@@ -12,7 +12,7 @@ const {
   deleteReview,
   getAdminProducts,
 } = require("../controllers/productController");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/Auth");
+const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 const router = express.Router();
 
