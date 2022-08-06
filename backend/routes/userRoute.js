@@ -14,7 +14,7 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+const { isAuthenticatedUser, authorizeRoles } = require("../middleware/Auth");
 
 const router = express.Router();
 
